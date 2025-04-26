@@ -1,10 +1,10 @@
-import { createTRPCClient, createTRPCProxyClient, httpBatchLink } from "@trpc/client";
+import { createTRPCClient, httpBatchLink } from "@trpc/client";
 import { AppRouter } from '@server/trpc/trpc.router'
 
 export const trpc = createTRPCClient<AppRouter>({
     links: [
         httpBatchLink({
-            url: 'http://localhost:4000/trpc',
+            url: `${process.env.NEXT_PUBLIC_NESTJS_SERVER}/trpc`,
             // You can pass any HTTP headers you wish here
             // async headers() {
             //     return {
