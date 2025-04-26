@@ -1,22 +1,23 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    // !not required, because extends from root tsconfig
+    // "baseUrl": "./",
+    // "emitDecoratorMetadata": true,
+    // "experimentalDecorators": true,
+    // "incremental": true,
+    // "skipLibCheck": true,
+    // "strictNullChecks": true,
+    // "noImplicitAny": true,
+    // "strictBindCallApply": true,
+    // "forceConsistentCasingInFileNames": true,
+    // "noFallthroughCasesInSwitch": true
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "ES2021",
+    "target": "es2017",
     "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true,
-    "skipLibCheck": true,
-    "strictNullChecks": true,
-    "noImplicitAny": true,
-    "strictBindCallApply": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true
+    "outDir": "./dist"
   }
 }
