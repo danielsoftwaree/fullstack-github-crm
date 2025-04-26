@@ -1,9 +1,9 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    // "paths": {
-    //   "@/*": ["./*"]
-    // }
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     // "incremental": true,
     // "forceConsistentCasingInFileNames": true,
     // "skipLibCheck": true,
