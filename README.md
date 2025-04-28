@@ -1,4 +1,4 @@
-# Git CRM - GitHub Repository Management
+# ForkBoard - GitHub Repository Management
 
 <img src="image.png">
 
