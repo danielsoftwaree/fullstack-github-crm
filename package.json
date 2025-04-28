@@ -2,7 +2,6 @@
   "name": "fullstack-github-crm",
   "version": "1.0.0",
   "description": "Test task for Fullstack Developer position",
-  "main": "index.js",
   "scripts": {
     "dev": "pnpm run --parallel dev"
   },

@@ -12,7 +12,12 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@server/*": ["./apps/server/src/*"],
-      "@web/*": ["./apps/web/*"]
+      "@web/*": ["./apps/web/src/*"]
     }
-  }
+  },
+  "references": [
+    {
+      "path": "./apps/server/tsconfig.json"
+    }
+  ]
 }
