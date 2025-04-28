@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+pnpm-debug.log
+.pnpm-store
+.next/cache
+dist
+.git
+.env
+.env.*
+*.log 
