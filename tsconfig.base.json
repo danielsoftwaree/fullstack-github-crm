@@ -14,10 +14,5 @@
       "@server/*": ["./apps/server/src/*"],
       "@web/*": ["./apps/web/src/*"]
     }
-  },
-  "references": [
-    {
-      "path": "./apps/server/tsconfig.json"
-    }
-  ]
+  }
 }
