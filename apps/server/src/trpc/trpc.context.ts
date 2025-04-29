@@ -1,7 +1,7 @@
+// import { User } from '../prisma/generated/prisma';
 import { User } from '@prisma/client';
 import { AuthService } from '../auth/auth.service';
 import { Request, Response } from 'express';
-import { TRPCError } from '@trpc/server';
 
 export interface TrpcContext {
     authService: AuthService;

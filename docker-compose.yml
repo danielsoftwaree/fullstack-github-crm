@@ -1,3 +1,4 @@
+version: "3.8"
 services:
   postgres:
     image: postgres:16-alpine
@@ -20,7 +21,9 @@ services:
   server:
     build:
       context: .
-      dockerfile: apps/server/Dockerfile
+      dockerfile: Dockerfile
+      target: server
+    working_dir: /app
     ports:
       - "4000:4000"
     environment:
@@ -29,9 +32,6 @@ services:
       - JWT_SECRET=secret123
       - CLIENT_URL=http://localhost:5000
       - PORT=4000
-    depends_on:
-      postgres:
-        condition: service_healthy
     networks:
       - backend
     volumes: []
@@ -39,18 +39,50 @@ services:
   web:
     build:
       context: .
-      dockerfile: apps/web/Dockerfile
-    ports:
-      - "5000:5000"
+      dockerfile: Dockerfile
+      target: web
+    working_dir: /app
     environment:
-      - NEXT_PUBLIC_NESTJS_SERVER=http://localhost:4000
       - NODE_ENV=production
-      - PORT=5000
+      - NEXT_PUBLIC_NESTJS_SERVER=http://server:4000
+    ports:
+      - "5000:3000"
     depends_on:
       - server
     networks:
       - backend
     volumes: []
+
+  deps:
+    image: git-crm-app-deps:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: deps
+    profiles:
+      - builder
+
+  server-build:
+    image: git-crm-app-server-build:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: server-build
+    depends_on:
+      - deps
+    profiles:
+      - builder
+
+  web-build:
+    image: git-crm-app-web-build:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: web-build
+    depends_on:
+      - server-build
+    profiles:
+      - builder
 
 networks:
   backend:
